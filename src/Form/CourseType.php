@@ -44,7 +44,8 @@ class CourseType extends AbstractType
                         'max' => 1000,
                         'maxMessage' => 'Длина описания не должна превышать {{ limit }} символов'
                     ])
-                ]
+                ],
+                'required' => false
             ])
         ;
     }
