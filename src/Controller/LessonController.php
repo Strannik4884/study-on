@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Course;
 use App\Entity\Lesson;
 use App\Form\LessonType;
 use App\Repository\LessonRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,11 +28,17 @@ class LessonController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="lesson_new", methods={"GET","POST"})
+     * @Route("/new/{courseId}", name="lesson_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, int $courseId): Response
     {
+        $course = $entityManager->getRepository(Course::class)->find($courseId);
+        if (!$course) {
+            throw $this->createNotFoundException('Курс с id ' . $courseId . ' не найден');
+        }
+
         $lesson = new Lesson();
+        $lesson->setCourse($course);
         $form = $this->createForm(LessonType::class, $lesson);
         $form->handleRequest($request);
 
@@ -39,7 +47,7 @@ class LessonController extends AbstractController
             $entityManager->persist($lesson);
             $entityManager->flush();
 
-            return $this->redirectToRoute('lesson_index');
+            return $this->redirectToRoute('course_show', ['id' => $course->getId()]);
         }
 
         return $this->render('lesson/new.html.twig', [
@@ -84,9 +92,11 @@ class LessonController extends AbstractController
     public function delete(Request $request, Lesson $lesson): Response
     {
         if ($this->isCsrfTokenValid('delete'.$lesson->getId(), $request->request->get('_token'))) {
+            $courseId = $lesson->getCourse()->getId();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($lesson);
             $entityManager->flush();
+            return $this->redirectToRoute('course_show', ['id' => $courseId]);
         }
 
         return $this->redirectToRoute('lesson_index');
