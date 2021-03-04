@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ lesson.course }} / {{ lesson.name }} / StudyOn{% endblock %}
+{% block title %}{{ lesson.name }} / {{ lesson.course }} / StudyOn{% endblock %}
 
 {% block body %}
     <h1>{{ lesson.name }}</h1>
@@ -14,6 +14,7 @@
         </tbody>
     </table>
 
+    <a href="{{ path('course_show', {'id': lesson.course.id}) }}">Назад к курсу</a>
     <a href="{{ path('lesson_edit', {'id': lesson.id}) }}">Редактировать</a>
 
     {{ include('lesson/_delete_form.html.twig') }}

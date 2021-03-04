@@ -17,6 +17,7 @@ class CourseType extends AbstractType
     {
         $builder
             ->add('code', TextType::class, [
+                'label' => 'Код',
                 'constraints' => [
                     new Length([
                         'max' => 255,
@@ -28,6 +29,7 @@ class CourseType extends AbstractType
                 ]
             ])
             ->add('name', TextType::class, [
+                'label' => 'Название',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Название не может быть пустым'
@@ -39,6 +41,7 @@ class CourseType extends AbstractType
                 ]
             ])
             ->add('description', TextareaType::class, [
+                'label' => 'Описание',
                 'constraints' => [
                     new Length([
                         'max' => 1000,

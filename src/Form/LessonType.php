@@ -28,6 +28,7 @@ class LessonType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
+                'label' => 'Название',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Название не может быть пустым'
@@ -39,6 +40,7 @@ class LessonType extends AbstractType
                 ]
             ])
             ->add('content', TextareaType::class, [
+                'label' => 'Содержимое',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Содержимое курса не может быть пустым'
@@ -46,6 +48,7 @@ class LessonType extends AbstractType
                 ]
             ])
             ->add('number', NumberType::class, [
+                'label' => 'Номер',
                 'constraints' => [
                     new Regex([
                         'pattern' => '/^\d+([\.,]?\d+)?$/',
