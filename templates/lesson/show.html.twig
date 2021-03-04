@@ -1,34 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Lesson{% endblock %}
+{% block title %}{{ lesson.course }} / {{ lesson.name }} / StudyOn{% endblock %}
 
 {% block body %}
-    <h1>Lesson</h1>
+    <h1>{{ lesson.name }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ lesson.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ lesson.name }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ lesson.content }}</td>
-            </tr>
-            <tr>
-                <th>Number</th>
-                <td>{{ lesson.number }}</td>
+                <th>Курс:</th>
+                <td><a href="{{ path('course_show', {'id': lesson.course.id}) }}">{{ lesson.course }}</a></td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('lesson_index') }}">back to list</a>
-
-    <a href="{{ path('lesson_edit', {'id': lesson.id}) }}">edit</a>
+    <a href="{{ path('lesson_edit', {'id': lesson.id}) }}">Редактировать</a>
 
     {{ include('lesson/_delete_form.html.twig') }}
+
+    <div>{{ lesson.content }}</div>
 {% endblock %}
