@@ -8,7 +8,7 @@
 
     <h3>Список уроков</h3>
     <ol>
-        {% for lesson in course.lessons %}
+        {% for lesson in lessons %}
             <li><a href="{{ path('lesson_show', {'id': lesson.id}) }}">{{ lesson.name }}</a></li>
         {% endfor %}
     </ol>
