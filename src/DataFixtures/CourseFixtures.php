@@ -21,7 +21,6 @@ class CourseFixtures extends Fixture
             $course->setDescription('Перед Вами новейший курс "' . $name . '"');
             $course->setCode($code);
             $manager->persist($course);
-            $manager->flush();
 
             for ($i = 1; $i < 6; ++$i) {
                 $lesson = new Lesson();
@@ -30,8 +29,8 @@ class CourseFixtures extends Fixture
                 $lesson->setNumber($i);
                 $lesson->setCourse($course);
                 $manager->persist($lesson);
-                $manager->flush();
             }
         }
+        $manager->flush();
     }
 }
