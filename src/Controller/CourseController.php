@@ -18,6 +18,8 @@ class CourseController extends AbstractController
 {
     /**
      * @Route("/", name="course_index", methods={"GET"})
+     * @param CourseRepository $courseRepository
+     * @return Response
      */
     public function index(CourseRepository $courseRepository): Response
     {
@@ -28,6 +30,8 @@ class CourseController extends AbstractController
 
     /**
      * @Route("/new", name="course_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -51,6 +55,9 @@ class CourseController extends AbstractController
 
     /**
      * @Route("/{id}", name="course_show", methods={"GET"})
+     * @param Course $course
+     * @param LessonRepository $lessonRepository
+     * @return Response
      */
     public function show(Course $course, LessonRepository $lessonRepository): Response
     {
@@ -63,6 +70,9 @@ class CourseController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="course_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Course $course
+     * @return Response
      */
     public function edit(Request $request, Course $course): Response
     {
@@ -83,6 +93,9 @@ class CourseController extends AbstractController
 
     /**
      * @Route("/{id}", name="course_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Course $course
+     * @return Response
      */
     public function delete(Request $request, Course $course): Response
     {

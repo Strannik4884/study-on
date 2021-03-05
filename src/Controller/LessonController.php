@@ -19,6 +19,8 @@ class LessonController extends AbstractController
 {
     /**
      * @Route("/", name="lesson_index", methods={"GET"})
+     * @param LessonRepository $lessonRepository
+     * @return Response
      */
     public function index(LessonRepository $lessonRepository): Response
     {
@@ -29,6 +31,9 @@ class LessonController extends AbstractController
 
     /**
      * @Route("/new", name="lesson_new", methods={"GET","POST"})
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
+     * @return Response
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -59,6 +64,8 @@ class LessonController extends AbstractController
 
     /**
      * @Route("/{id}", name="lesson_show", methods={"GET"})
+     * @param Lesson $lesson
+     * @return Response
      */
     public function show(Lesson $lesson): Response
     {
@@ -69,6 +76,9 @@ class LessonController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="lesson_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Lesson $lesson
+     * @return Response
      */
     public function edit(Request $request, Lesson $lesson): Response
     {
@@ -89,6 +99,9 @@ class LessonController extends AbstractController
 
     /**
      * @Route("/{id}", name="lesson_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Lesson $lesson
+     * @return Response
      */
     public function delete(Request $request, Lesson $lesson): Response
     {
