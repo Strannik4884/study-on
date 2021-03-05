@@ -28,10 +28,11 @@ class LessonController extends AbstractController
     }
 
     /**
-     * @Route("/new/{courseId}", name="lesson_new", methods={"GET","POST"})
+     * @Route("/new", name="lesson_new", methods={"GET","POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager, int $courseId): Response
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $courseId = $request->get('course_id');
         $course = $entityManager->getRepository(Course::class)->find($courseId);
         if (!$course) {
             throw $this->createNotFoundException('Курс с id ' . $courseId . ' не найден');
