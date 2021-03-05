@@ -35,7 +35,6 @@ class Lesson
     private $content;
 
     /**
-     * @Assert\Length(max=10000, maxMessage="Lesson.number property must be no more than {{ limit }}")
      * @ORM\Column(type="smallint")
      */
     private $number;

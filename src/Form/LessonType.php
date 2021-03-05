@@ -15,6 +15,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Range;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class LessonType extends AbstractType
@@ -50,9 +51,11 @@ class LessonType extends AbstractType
             ->add('number', NumberType::class, [
                 'label' => 'Номер',
                 'constraints' => [
-                    new Regex([
-                        'pattern' => '/^\d+([\.,]?\d+)?$/',
-                        'message' => 'Номер курса должен быть целым числом'
+                    new Range([
+                        'min' => 1,
+                        'minMessage' => 'Номер урока не может быть меньше {{ min }}',
+                        'max' => 10000,
+                        'maxMessage' => 'Номер урока не может быть больше {{ max }}'
                     ])
                 ]
             ])

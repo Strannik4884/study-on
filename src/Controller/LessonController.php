@@ -78,7 +78,7 @@ class LessonController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('lesson_index');
+            return $this->redirectToRoute('course_show', ['id' => $lesson->getCourse()->getId()]);
         }
 
         return $this->render('lesson/edit.html.twig', [
