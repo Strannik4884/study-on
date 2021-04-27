@@ -105,7 +105,7 @@ class LessonController extends AbstractController
      */
     public function delete(Request $request, Lesson $lesson): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$lesson->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $lesson->getId(), $request->request->get('_token'))) {
             $courseId = $lesson->getCourse()->getId();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($lesson);

@@ -21,36 +21,35 @@ class CourseType extends AbstractType
                 'constraints' => [
                     new Length([
                         'max' => 255,
-                        'maxMessage' => 'Длина кода не должна превышать {{ limit }} символов'
+                        'maxMessage' => 'Длина кода не должна превышать {{ limit }} символов',
                     ]),
                     new NotBlank([
-                        'message' => 'Код не может быть пустым'
-                    ])
-                ]
+                        'message' => 'Код не может быть пустым',
+                    ]),
+                ],
             ])
             ->add('name', TextType::class, [
                 'label' => 'Название',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Название не может быть пустым'
+                        'message' => 'Название не может быть пустым',
                     ]),
                     new Length([
                         'max' => 255,
-                        'maxMessage' => 'Длина названия не должна превышать {{ limit }} символов'
-                    ])
-                ]
+                        'maxMessage' => 'Длина названия не должна превышать {{ limit }} символов',
+                    ]),
+                ],
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Описание',
                 'constraints' => [
                     new Length([
                         'max' => 1000,
-                        'maxMessage' => 'Длина описания не должна превышать {{ limit }} символов'
-                    ])
+                        'maxMessage' => 'Длина описания не должна превышать {{ limit }} символов',
+                    ]),
                 ],
-                'required' => false
-            ])
-        ;
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
