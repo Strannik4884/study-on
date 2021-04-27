@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Required meta tags -->
+    <!-- Meta tags section -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}StudyOn!{% endblock %}</title>
-    {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
+    <link rel="icon" type="image/png" href="{{ asset('icons/favicon.png') }}">
+    <title>{% block title %}Добро пожаловать на StudyOn{% endblock %}</title>
+    <!-- Stylesheets section -->
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
-
+    <!-- JavaScript section -->
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </head>
 <body>
     <div class="container-fluid">
-        {# header #}
+        <!-- Header -->
         {% include('./default/header.html.twig') %}
-
+        <!-- Body -->
         {% block body %}
         {% endblock %}
     </div>
