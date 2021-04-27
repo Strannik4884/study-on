@@ -1,17 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Список курсов{% endblock %}
+{% block title %}StudyOn{% endblock %}
 
 {% block body %}
-    <h1>Список курсов</h1>
-
-    {% for course in courses %}
-        <h2><a href="{{ path('course_show', {'id': course.id}) }}">{{ course.name }}</a></h2>
-        <p>{{ course.description }}</p>
-    {% else %}
-        <p colspan="5">Курсы отсутствуют</p>
-    {% endfor %}
-
-    <hr/>
-    <a href="{{ path('course_new') }}">Добавить новый курс</a>
+    <h1>Курсы</h1>
+    <div class="row row-cols-2 mt-4">
+        {% for course in courses %}
+            <div class="col pl-3 pr-3 pb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course.name }}</h5>
+                        <p class="card-text">{{ course.description }}</p>
+                        <a href="{{ path('course_show', {'id': course.id}) }}" class="card-link">Пройти</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <h2>no records found</h2>
+        {% endfor %}
+    </div>
+    <div class="line mt-4 mb-4"></div>
+    <a href="{{ path('course_new') }}" class="course__new btn btn-outline-secondary">Новый курс</a>
 {% endblock %}

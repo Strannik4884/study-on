@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Lesson index{% endblock %}
+{% block title %}{{ lesson.course.name}} / StudyOn{% endblock %}
 
 {% block body %}
     <h1>Lesson index</h1>
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Content</th>
-                <th>Number</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Material</th>
+            <th>Number</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for lesson in lessons %}
