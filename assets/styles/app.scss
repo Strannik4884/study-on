@@ -10,3 +10,14 @@
 .a_margin {
   margin-right: 5px;
 }
+
+// remove markers
+.lessons-list {
+  list-style-type: none; /* Убираем маркеры */
+}
+
+// remove paddings
+.lessons-list-item {
+  margin-left: 0; /* Отступ слева в браузере IE и Opera */
+  padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
