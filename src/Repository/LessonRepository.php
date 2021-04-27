@@ -21,7 +21,7 @@ class LessonRepository extends ServiceEntityRepository
 
     /**
      * @return Lesson[] Returns an array of Lesson objects
-    */
+     */
     public function findByCourse($value)
     {
         return $this->createQueryBuilder('l')
@@ -29,19 +29,6 @@ class LessonRepository extends ServiceEntityRepository
             ->setParameter('val', $value)
             ->orderBy('l.number', 'ASC')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-
-    /*
-    public function findOneBySomeField($value): ?Lesson
-    {
-        return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

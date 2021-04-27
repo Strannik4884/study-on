@@ -1,0 +1,23 @@
+@import '~bootstrap/scss/bootstrap';
+
+// course index style
+.line {
+  border: 1px solid lightgray;
+  width: 100%;
+}
+
+// button margin style
+.buttons-margin {
+  margin-right: 5px;
+}
+
+// remove markers
+.lessons-list {
+  list-style-type: none;
+}
+
+// remove paddings
+.lessons-list-item {
+  margin-left: 0;
+  padding-left: 0;
+}
