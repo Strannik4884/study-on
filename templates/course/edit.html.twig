@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Course / StudyOn{% endblock %}
+{% block title %}Редактирование / {{ course.name}} / StudyOn{% endblock %}
 
 {% block body %}
     <h1>{{ course.name }}</h1>
@@ -8,6 +8,8 @@
     {{ include('course/_form.html.twig') }}
 
     <div class="line mt-4 mb-4"></div>
-
-    {{ include('course/_delete_form.html.twig') }}
+    <div class="d-flex">
+        <a href="{{ path('course_show', {'id': course.id}) }}" class="btn btn-outline-secondary buttons-margin">Назад к курсу</a>
+        {{ include('course/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

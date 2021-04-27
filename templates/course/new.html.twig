@@ -1,12 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Course / StudyOn{% endblock %}
+{% block title %}Новый курс / Курсы / StudyOn{% endblock %}
 
 {% block body %}
     <h1>Новый курс</h1>
-
     {{ include('course/_form.html.twig') }}
     <div class="line mt-4 mb-4"></div>
     <a href="{{ path('course_index') }}" class="btn btn-outline-secondary">К списку курсов</a>
-
 {% endblock %}
