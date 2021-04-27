@@ -13,7 +13,7 @@ class CourseFixtures extends Fixture
     {
         $courses = ['tech-dev-web' => 'Технологии разработки WEB-приложений',
             'php-language' => 'Язык программирования PHP', 'database-course' => 'Базы данных',
-            'vuejs-course' => 'Vue.js', 'symfony-course' => 'Symfony'];
+            'vue-js-course' => 'Vue.js', 'symfony-course' => 'Symfony'];
 
         foreach ($courses as $code => $name) {
             $course = new Course();
