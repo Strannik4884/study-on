@@ -6,7 +6,7 @@
     <h1>Урок: {{ lesson.name }}</h1>
     <h2>Курса: <a href="{{ path('course_show', {'id': lesson.course.id}) }}">{{ lesson.course.name }}</a></h2>
     <div class="d-flex mt-3 mb-4">
-        <a href="{{ path('lesson_edit', {'id': lesson.id}) }}" class="lesson__edit btn btn-outline-secondary buttons-margin">Редактировать</a>
+        <a href="{{ path('lesson_edit', {'id': lesson.id}) }}" class="btn btn-outline-secondary buttons-margin lesson-edit-button">Редактировать</a>
         {{ include('lesson/_delete_form.html.twig') }}
     </div>
     <div class="card">
