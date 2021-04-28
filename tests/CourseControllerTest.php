@@ -280,7 +280,7 @@ class CourseControllerTest extends AbstractTest
         // check redirect to course show page
         self::assertTrue($client->getResponse()->isRedirect($this->getPath() . '/' . $course->getId()));
         // follow redirect
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
         $this->assertResponseOk();
     }
 }
